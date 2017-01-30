@@ -43,10 +43,13 @@ class PublishableBehavior extends Behavior
     {
         return $query
         ->notMatching('DatePublisheds', function ($q) {
-            return $q->where([
-                'DatePublisheds.end_date <' => $q->func()->now()
+            return $q->where([ 'OR' => [
+                    'DatePublisheds.begin_date >' => $q->func()->now(),
+                    'DatePublisheds.end_date <' => $q->func()->now()
+                ]
             ]);
-        });
+        })
+        ;
     }
 
     /**

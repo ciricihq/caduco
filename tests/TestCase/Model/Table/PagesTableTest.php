@@ -65,6 +65,7 @@ class PagesTableTest extends TestCase
     public function testGetPages()
     {
         $pages = $this->Pages->getPages();
+        // debug($pages->count());die;
         $this->assertFalse(empty($pages));
     }
 }

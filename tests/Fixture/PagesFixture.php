@@ -68,7 +68,7 @@ class PagesFixture extends TestFixture
 
         ],
         [
-            'id' => 39,
+            'id' => 2,
             'parent_id' => 0,
             'user_id' => 5,
             'lft' => 61,
@@ -148,7 +148,7 @@ class PagesFixture extends TestFixture
             'modified' => '2016-12-20 14:06:21',
         ],
         [
-            'id' => 8,
+            'id' => 7,
             'parent_id' => 0,
             'user_id' => 5,
             'lft' => 71,
