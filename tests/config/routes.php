@@ -1,9 +1,9 @@
 <?php
 use Cake\Routing\Router;
 Router::scope('/', function ($routes) {
-    $routes->connect('/pages/test/', [
+    $routes->connect('/pages/index/', [
         'controller' => 'Pages',
-        'action' => 'view',
+        'action' => 'index',
         'plugin' => false,
         'admin' => false
     ]);

@@ -1,5 +1,5 @@
 {
-    "name": "your-name-here/DatePublished",
+    "name": "ciricihq/DatePublished",
     "description": "DatePublished plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
@@ -16,8 +16,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "DatePublished\\Test\\": "tests",
-            "DatePublished\\Test\\Fixture\\": "tests/Fixture"
+            "DatePublished\\Test\\": "tests/app/src",
+            "DatePublished\\Test\\Fixture\\": "tests/Fixture",
+            "App\\": "tests/App"
         }
     }
 }

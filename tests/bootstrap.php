@@ -60,14 +60,14 @@ $cache = [
     ],
     '_cake_core_' => [
         'className' => 'File',
-        'prefix' => 'metatags_cake_core_',
+        'prefix' => 'datepublished_cake_core_',
         'path' => CACHE . 'persistent/',
         'serialize' => true,
         'duration' => '+10 seconds'
     ],
     '_cake_model_' => [
         'className' => 'File',
-        'prefix' => 'metatags_cake_model_',
+        'prefix' => 'datepublished_cake_model_',
         'path' => CACHE . 'models/',
         'serialize' => 'File',
         'duration' => '+10 seconds'

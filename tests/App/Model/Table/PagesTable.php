@@ -9,5 +9,11 @@ class PagesTable extends Table
     public function initialize(array $config)
     {
         $this->table('pages');
+        $this->addBehavior('DatePublished.Publishable');
+    }
+
+    public function getPages()
+    {
+        return $this->find();
     }
 }

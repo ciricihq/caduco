@@ -11,4 +11,10 @@ class PagesController extends AppController
     {
         parent::initialize();
     }
+
+    public function index()
+    {
+        $pages = $this->Pages->find();
+        return $pages;
+    }
 }
