@@ -1,0 +1,23 @@
+{
+    "name": "your-name-here/DatePublished",
+    "description": "DatePublished plugin for CakePHP",
+    "type": "cakephp-plugin",
+    "require": {
+        "php": ">=5.4.16",
+        "cakephp/cakephp": "~3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "DatePublished\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DatePublished\\Test\\": "tests",
+            "DatePublished\\Test\\Fixture\\": "tests/Fixture"
+        }
+    }
+}
