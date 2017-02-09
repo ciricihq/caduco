@@ -20,8 +20,8 @@ class DatePublishedsFixture extends TestFixture
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'model' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'foreign_key' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'begin_date' => ['type' => 'date', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'end_date' => ['type' => 'date', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'begin_date' => ['type' => 'date', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'end_date' => ['type' => 'date', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -42,8 +42,29 @@ class DatePublishedsFixture extends TestFixture
             'id' => 1,
             'model' => 'Page',
             'foreign_key' => 1,
-            'begin_date' => '2017-02-24',
-            'end_date' => '2017-02-24'
+            'begin_date' => '2050-02-24',
+            'end_date' => '2055-02-24'
+        ],
+        [
+            'id' => 2,
+            'model' => 'Page',
+            'foreign_key' => 2,
+            'begin_date' => null,
+            'end_date' => '2016-02-24'
+        ],
+        [
+            'id' => 3,
+            'model' => 'Page',
+            'foreign_key' => 3,
+            'begin_date' => '2015-02-22',
+            'end_date' => '2015-02-24'
+        ],
+        [
+            'id' => 4,
+            'model' => 'Page',
+            'foreign_key' => 4,
+            'begin_date' => '2055-02-22',
+            'end_date' => null
         ],
     ];
 }

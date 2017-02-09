@@ -6,7 +6,8 @@
         "cakephp/orm": "3.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+         "phpunit/phpunit": "^4.8",
+        "cakephp/cakephp": "3.*"
     },
     "autoload": {
         "psr-4": {

@@ -17,8 +17,14 @@ class DateitPlugin extends AbstractMigration
             ->addPrimaryKey('id')
             ->addColumn('model', 'string')
             ->addColumn('foreign_key', 'integer')
-            ->addColumn('begin_date', 'date')
-            ->addColumn('end_date', 'date')
+            ->addColumn('begin_date', 'date', [
+                'default' => null,
+                'null'    => true
+            ])
+            ->addColumn('end_date', 'date', [
+                'default' => null,
+                'null'    => true
+            ]))
             ->create();
     }
 }
