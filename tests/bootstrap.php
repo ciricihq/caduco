@@ -90,7 +90,7 @@ ConnectionManager::config('test', [
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
 
-Plugin::load('Cirici/DatePublished', [
+Plugin::load('Cirici/Dateit', [
     'path' => ROOT . DS
 ]);
 

@@ -1,23 +1,22 @@
 {
-    "name": "ciricihq/DatePublished",
-    "description": "DatePublished plugin for CakePHP",
+    "name": "ciricihq/dateit",
+    "description": "",
     "type": "cakephp-plugin",
     "require": {
-        "php": ">=5.4.16",
-        "cakephp/cakephp": "~3.0"
+        "cakephp/orm": "3.*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
     },
     "autoload": {
         "psr-4": {
-            "DatePublished\\": "src"
+            "Cirici\\Dateit\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "DatePublished\\Test\\": "tests/app/src",
-            "DatePublished\\Test\\Fixture\\": "tests/Fixture",
+            "Cirici\\Dateit\\Test\\": "tests/app/src",
+            "Cirici\\Dateit\\Test\\Fixture\\": "tests/Fixture",
             "App\\": "tests/App"
         }
     }

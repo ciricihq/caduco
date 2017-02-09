@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class DatePublishedPlugin extends AbstractMigration
+class DateitPlugin extends AbstractMigration
 {
     /**
      * Change Method.

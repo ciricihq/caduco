@@ -1,5 +1,5 @@
 <?php
-namespace DatePublished\Model\Table;
+namespace Cirici\Dateit\Model\Table;
 
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;

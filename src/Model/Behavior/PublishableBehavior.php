@@ -1,5 +1,5 @@
 <?php
-namespace DatePublished\Model\Behavior;
+namespace Cirici\Dateit\Model\Behavior;
 
 use ArrayObject;
 use Cake\Event\Event;
@@ -11,7 +11,7 @@ use Cake\Utility\Inflector;
 class PublishableBehavior extends Behavior
 {
     protected $_defaultConfig = [
-        'datePublishableClass'  => 'DatePublisheds',
+        'datePublishableClass'  => 'Dateit.DatePublisheds',
         'foreignKey'            => 'foreign_key',
     ];
 
@@ -20,7 +20,7 @@ class PublishableBehavior extends Behavior
         $config = $this->config();
         $model = Inflector::singularize($this->_table->registryAlias());
 
-        $this->_table->hasMany('DatePublisheds', [
+        $this->_table->hasMany('Dateit.DatePublisheds', [
             'className'  => $config['datePublishableClass'],
             'foreignKey' => $config['foreignKey'],
             'conditions' => [

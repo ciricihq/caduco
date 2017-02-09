@@ -1,7 +1,7 @@
 <?php
 use Cake\Core\Configure;
 use Cake\Routing\DispatcherFactory;
-Configure::write('DatePublished', [
+Configure::write('Dateit', [
     'links' => [
         'logout' => null,
         'profile' => false,
@@ -11,6 +11,6 @@ Configure::write('DatePublished', [
         'forgot' => 'I forgot my password'
     ]
 ]);
-if (file_exists(CONFIG . 'datepublished.php')) {
-    Configure::load('datepublished');
+if (file_exists(CONFIG . 'dateit.php')) {
+    Configure::load('dateit');
 }
