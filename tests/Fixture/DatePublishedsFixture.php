@@ -66,5 +66,19 @@ class DatePublishedsFixture extends TestFixture
             'begin_date' => '2055-02-22',
             'end_date' => null
         ],
+        [
+            'id' => 5,
+            'model' => 'Page',
+            'foreign_key' => 5,
+            'begin_date' => '2016-02-22',
+            'end_date' => null
+        ],
+        [
+            'id' => 6,
+            'model' => 'Page',
+            'foreign_key' => 6,
+            'begin_date' => '2016-02-22',
+            'end_date' => '2055-02-22'
+        ],
     ];
 }
