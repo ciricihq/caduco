@@ -8,17 +8,16 @@ You can install this plugin into your CakePHP application using [composer](http:
 The recommended way to install composer packages is:
 
 ```
-composer require ciricihq/DatePublished
+composer require ciricihq/Dateit
 ```
 Execute migration
 
 ```
-bin/cake migrations migrate --plugin DatePublished
-```
+bin/cake migrations migrate --plugin Dateit
 Execute seed
 
 ```
-bin/cake migrations seed --plugin DatePublished
+bin/cake migrations seed --plugin Dateit
 ```
 
 Configuration
@@ -28,5 +27,5 @@ First you need to load the plugin. To do so, edit your `bootstrap.php` file and
 add line below:
 
 ```php
-Plugin::load('DatePublished', ['bootstrap' => true]);
+Plugin::load('Dateit', ['bootstrap' => true]);
 ```
