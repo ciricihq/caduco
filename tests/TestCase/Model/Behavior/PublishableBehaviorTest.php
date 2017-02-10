@@ -33,7 +33,10 @@ class PublishableBehaviorTest extends TestCase
             'table' => 'pages', 
             'registryAlias' => 'Page'
         ]);
-        $this->DatePublisheds = TableRegistry::get('Cirici/Dateit.DatePublisheds', ['table' => 'date_publisheds']);
+        $this->DatePublisheds = TableRegistry::get('DatePublisheds', [
+            'table' => 'date_publisheds',
+            'registryAlias' => 'DatePublisheds'
+        ]);
         $this->Pages->addBehavior('Cirici/Dateit.Publishable');
     }
 
@@ -57,6 +60,30 @@ class PublishableBehaviorTest extends TestCase
     public function testBeforeFind()
     {
         $pages = $this->Pages->find()
+            ->contain('DatePublisheds')
+        ;
+        $this->assertCount(3, $pages);
+        $currentDate = new Date();
+        foreach ($pages as $page) {
+            if(!empty($page->date_publisheds[0]['begin_date'])) {
+                $begin_date = $page->date_publisheds[0]['begin_date'];
+                $this->assertTrue($begin_date->isPast() || $begin_date->isToday());
+            }
+            if(!empty($page->date_publisheds[0]['end_date'])) {
+                $end_date = $page->date_publisheds[0]['end_date'];
+                $this->assertTrue($end_date->isFuture());
+            }
+        }
+    }
+
+    /**
+     * Test the findAllActive callback.
+     *
+     * @return void
+     */
+    public function testFindAllActive()
+    {
+        $pages = $this->Pages->find('allActive')
             ->contain('DatePublisheds')
         ;
         $this->assertCount(3, $pages);
