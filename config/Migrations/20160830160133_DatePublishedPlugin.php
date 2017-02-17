@@ -24,7 +24,7 @@ class DateitPlugin extends AbstractMigration
             ->addColumn('end_date', 'date', [
                 'default' => null,
                 'null'    => true
-            ]))
+            ])
             ->create();
     }
 }
