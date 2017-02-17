@@ -1,16 +1,17 @@
 <?php
 namespace Cirici\Dateit\Test\TestCase\Model\Behavior;
+
+use Cake\I18n\Date;
+use Cake\I18n\Time;
 use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use Cake\I18n\Date;
-use Cake\I18n\Time;
 use DatePublished\Model\Behavior\PublishableBehavior;
 
 class PublishableBehaviorTest extends TestCase
 {
 
-        /**
+    /**
      * Fixtures to load.
      *
      * @var array
@@ -60,17 +61,16 @@ class PublishableBehaviorTest extends TestCase
     public function testBeforeFind()
     {
         $pages = $this->Pages->find()
-            ->contain('DatePublisheds')
-        ;
+            ->contain('DatePublisheds');
         $this->assertCount(3, $pages);
         foreach ($pages as $page) {
             if (!empty($page->date_publisheds->begin_date)) {
-                $begin_date = $page->date_publisheds->begin_date;
-                $this->assertTrue($begin_date->isPast() || $begin_date->isToday());
+                $beginDate = $page->date_publisheds->begin_date;
+                $this->assertTrue($beginDate->isPast() || $beginDate->isToday());
             }
             if (!empty($page->date_publisheds->end_date)) {
-                $end_date = $page->date_publisheds->end_date;
-                $this->assertTrue($end_date->isFuture());
+                $endDate = $page->date_publisheds->end_date;
+                $this->assertTrue($endDate->isFuture());
             }
         }
     }
@@ -83,17 +83,16 @@ class PublishableBehaviorTest extends TestCase
     public function testFindAllActive()
     {
         $pages = $this->Pages->find('allActive')
-            ->contain('DatePublisheds')
-        ;
+            ->contain('DatePublisheds');
         $this->assertCount(3, $pages);
         foreach ($pages as $page) {
             if (!empty($page->date_publisheds->begin_date)) {
-                $begin_date = $page->date_publisheds->begin_date;
-                $this->assertTrue($begin_date->isPast() || $begin_date->isToday());
+                $beginDate = $page->date_publisheds->begin_date;
+                $this->assertTrue($beginDate->isPast() || $beginDate->isToday());
             }
             if (!empty($page->date_publisheds->end_date)) {
-                $end_date = $page->date_publisheds->end_date;
-                $this->assertTrue($end_date->isFuture());
+                $endDate = $page->date_publisheds->end_date;
+                $this->assertTrue($endDate->isFuture());
             }
         }
     }

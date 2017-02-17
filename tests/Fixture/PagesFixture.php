@@ -161,6 +161,6 @@ class PagesFixture extends TestFixture
             'visible' => 1,
             'created' => '2017-02-08 10:32:08',
             'modified' => '2017-02-08 10:32:08'
-        ],
+         ],
     ];
 }
