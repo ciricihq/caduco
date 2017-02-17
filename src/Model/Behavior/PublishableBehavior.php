@@ -20,7 +20,7 @@ class PublishableBehavior extends Behavior
         $config = $this->config();
         $model = Inflector::singularize($this->_table->registryAlias());
 
-        $this->_table->hasMany('Dateit.DatePublisheds', [
+        $this->_table->hasOne('Dateit.DatePublisheds', [
             'className'  => $config['datePublishableClass'],
             'foreignKey' => $config['foreignKey'],
             'conditions' => [
@@ -42,13 +42,13 @@ class PublishableBehavior extends Behavior
     public function findAllActive(Query $query)
     {
         return $query
-        ->notMatching('DatePublisheds', function ($q) {
-            return $q->where([ 'OR' => [
-                    'DatePublisheds.begin_date >' => $q->func()->now(),
-                    'DatePublisheds.end_date <' => $q->func()->now()
-                ]
-            ]);
-        })
+            ->notMatching('DatePublisheds', function ($q) {
+                return $q->where([ 'OR' => [
+                        'DatePublisheds.begin_date >' => $q->func()->now(),
+                        'DatePublisheds.end_date <' => $q->func()->now()
+                    ]
+                ]);
+            })
         ;
     }
 

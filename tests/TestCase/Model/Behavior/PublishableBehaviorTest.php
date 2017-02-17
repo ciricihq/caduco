@@ -30,7 +30,7 @@ class PublishableBehaviorTest extends TestCase
         parent::setUp();
         $this->Pages = TableRegistry::get('Pages', [
             'className' => 'Cirici/Dateit.Pages',
-            'table' => 'pages', 
+            'table' => 'pages',
             'registryAlias' => 'Page'
         ]);
         $this->DatePublisheds = TableRegistry::get('DatePublisheds', [
@@ -63,14 +63,13 @@ class PublishableBehaviorTest extends TestCase
             ->contain('DatePublisheds')
         ;
         $this->assertCount(3, $pages);
-        $currentDate = new Date();
         foreach ($pages as $page) {
-            if(!empty($page->date_publisheds[0]['begin_date'])) {
-                $begin_date = $page->date_publisheds[0]['begin_date'];
+            if (!empty($page->date_publisheds->begin_date)) {
+                $begin_date = $page->date_publisheds->begin_date;
                 $this->assertTrue($begin_date->isPast() || $begin_date->isToday());
             }
-            if(!empty($page->date_publisheds[0]['end_date'])) {
-                $end_date = $page->date_publisheds[0]['end_date'];
+            if (!empty($page->date_publisheds->end_date)) {
+                $end_date = $page->date_publisheds->end_date;
                 $this->assertTrue($end_date->isFuture());
             }
         }
@@ -87,14 +86,13 @@ class PublishableBehaviorTest extends TestCase
             ->contain('DatePublisheds')
         ;
         $this->assertCount(3, $pages);
-        $currentDate = new Date();
         foreach ($pages as $page) {
-            if(!empty($page->date_publisheds[0]['begin_date'])) {
-                $begin_date = $page->date_publisheds[0]['begin_date'];
+            if (!empty($page->date_publisheds->begin_date)) {
+                $begin_date = $page->date_publisheds->begin_date;
                 $this->assertTrue($begin_date->isPast() || $begin_date->isToday());
             }
-            if(!empty($page->date_publisheds[0]['end_date'])) {
-                $end_date = $page->date_publisheds[0]['end_date'];
+            if (!empty($page->date_publisheds->end_date)) {
+                $end_date = $page->date_publisheds->end_date;
                 $this->assertTrue($end_date->isFuture());
             }
         }
