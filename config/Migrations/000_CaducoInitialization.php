@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class DateitPlugin extends AbstractMigration
+class CaducoInitialization extends AbstractMigration
 {
     /**
      * Change Method.
@@ -12,7 +12,7 @@ class DateitPlugin extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('date_publisheds');
+        $table = $this->table('caducities');
         $table
             ->addPrimaryKey('id')
             ->addColumn('model', 'string')

@@ -4,10 +4,10 @@ namespace Cirici\Caduco\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * DatePublishedsFixture
+ * CaducitiesFixture
  *
  */
-class DatePublishedsFixture extends TestFixture
+class CaducitiesFixture extends TestFixture
 {
 
     /**

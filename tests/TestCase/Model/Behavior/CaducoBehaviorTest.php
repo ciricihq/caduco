@@ -6,7 +6,7 @@ use Cake\I18n\Time;
 use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use DatePublished\Model\Behavior\CaducoBehavior;
+use Cirici\Caduco\Model\Behavior\CaducoBehavior;
 
 class CaducoBehaviorTest extends TestCase
 {
@@ -17,7 +17,7 @@ class CaducoBehaviorTest extends TestCase
      */
     public $fixtures = [
         'plugin.Cirici/Caduco.pages',
-        'plugin.Cirici/Caduco.date_publisheds'
+        'plugin.Cirici/Caduco.caducities'
     ];
 
     /**
@@ -45,7 +45,7 @@ class CaducoBehaviorTest extends TestCase
     {
         parent::tearDown();
         TableRegistry::clear();
-        unset($this->Pages, $this->DatePublisheds);
+        unset($this->Pages, $this->Caducities);
     }
 
     /**
@@ -56,7 +56,7 @@ class CaducoBehaviorTest extends TestCase
     public function testBeforeFind()
     {
         $pages = $this->Pages->find()
-            ->contain('DatePublisheds');
+            ->contain('Caducities');
         $this->assertCount(3, $pages);
         foreach ($pages as $page) {
             if (!empty($page->date_publisheds->begin_date)) {
@@ -78,7 +78,7 @@ class CaducoBehaviorTest extends TestCase
     public function testFindAllActive()
     {
         $pages = $this->Pages->find()
-            ->contain('DatePublisheds');
+            ->contain('Caducities');
         $this->assertCount(3, $pages);
         foreach ($pages as $page) {
             if (!empty($page->date_publisheds->begin_date)) {

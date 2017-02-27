@@ -4,7 +4,7 @@ namespace Cirici\Caduco\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * DatePublished Entity
+ * Caducity Entity
  *
  * @property int $id
  * @property string $model
@@ -12,9 +12,9 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $begin_date
  * @property \Cake\I18n\Time $end_date
  *
- * @property \DatePublished\Model\Entity\Phinxlog[] $phinxlog
+ * @property \Cirici\Caduco\Model\Entity\Phinxlog[] $phinxlog
  */
-class DatePublished extends Entity
+class Caducity extends Entity
 {
 
     /**

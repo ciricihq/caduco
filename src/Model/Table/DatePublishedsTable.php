@@ -6,7 +6,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class DatePublishedTable extends Table
+class CaducitiesTable extends Table
 {
 
     /**
@@ -18,7 +18,7 @@ class DatePublishedTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        $this->table('date_publisheds');
+        $this->table('caducities');
         $this->displayField('id');
         $this->primaryKey('id');
     }

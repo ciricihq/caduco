@@ -11,7 +11,7 @@ use Cake\Utility\Inflector;
 class CaducoBehavior extends Behavior
 {
     protected $_defaultConfig = [
-        'datePublishableClass' => 'Dateit.DatePublisheds',
+        'tableClass' => 'Caduco.Caducities',
         'foreignKey' => 'foreign_key',
     ];
 
@@ -28,11 +28,11 @@ class CaducoBehavior extends Behavior
         $config = $this->config();
         $model = Inflector::singularize($this->_table->registryAlias());
 
-        $this->_table->hasOne('Dateit.DatePublisheds', [
-            'className' => $config['datePublishableClass'],
+        $this->_table->hasOne('Caduco.Caducities', [
+            'className' => $config['tableClass'],
             'foreignKey' => $config['foreignKey'],
             'conditions' => [
-                'DatePublisheds.model' => $model,
+                'Caducities.model' => $model,
             ],
         ]);
     }
@@ -59,10 +59,10 @@ class CaducoBehavior extends Behavior
      */
     public function findAllActive(Query $query)
     {
-        return $query->notMatching('DatePublisheds', function ($q) {
+        return $query->notMatching('Caducities', function ($q) {
             return $q->where(['OR' => [
-                    'DatePublisheds.begin_date >=' => $q->func()->now(),
-                    'DatePublisheds.end_date <' => $q->func()->now(),
+                    'Caducities.begin_date >=' => $q->func()->now(),
+                    'Caducities.end_date <' => $q->func()->now(),
                 ],
             ]);
         });
@@ -75,9 +75,9 @@ class CaducoBehavior extends Behavior
      */
     public function findExpired(Query $query)
     {
-        return $query->matching('DatePublisheds', function ($q) {
+        return $query->matching('Caducities', function ($q) {
             return $q->where([
-                'DatePublisheds.end_date <=' => $q->func()->now()
+                'Caducities.end_date <=' => $q->func()->now()
             ]);
         });
     }
@@ -89,9 +89,9 @@ class CaducoBehavior extends Behavior
      */
     public function findNotActive(Query $query)
     {
-        return $query->matching('DatePublisheds', function ($q) {
+        return $query->matching('Caducities', function ($q) {
             return $q->where([
-                'DatePublisheds.begin_date IS NOT' => null
+                'Caducities.begin_date IS NOT' => null
             ]);
         });
     }
