@@ -32,9 +32,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Cirici\\Caduco\\Test\\": "tests/app/src",
-            "Cirici\\Caduco\\Test\\Fixture\\": "tests/Fixture",
-            "App\\": "tests/App"
+            "Cirici\\Caduco\\Test\\": "tests",
+            "Cirici\\Caduco\\Test\\Fixture\\": "tests/Fixture"
         }
     }
 }
