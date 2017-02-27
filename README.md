@@ -10,18 +10,20 @@ You can install this plugin into your CakePHP application using [composer](http:
 
 The recommended way to install composer packages is:
 
-```
+~~~bash
 composer require ciricihq/caduco
-```
+~~~
+
 Execute migration
 
-```
+~~~bash
 bin/cake migrations migrate --plugin Cirici/Caduco
+~~~
 Execute seed
 
-```
+~~~bash
 bin/cake migrations seed --plugin Cirici/Caduco
-```
+~~~
 
 Configuration
 -------------
