@@ -1,5 +1,5 @@
 <?php
-namespace Cirici\Dateit\Model\Table;
+namespace Cirici\Caduco\Model\Table;
 
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;

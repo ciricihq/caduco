@@ -1,5 +1,5 @@
 <?php
-namespace Cirici\Dateit\Model\Behavior;
+namespace Cirici\Caduco\Model\Behavior;
 
 use ArrayObject;
 use Cake\Event\Event;
@@ -8,7 +8,7 @@ use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Utility\Inflector;
 
-class PublishableBehavior extends Behavior
+class CaducoBehavior extends Behavior
 {
     protected $_defaultConfig = [
         'datePublishableClass' => 'Dateit.DatePublisheds',

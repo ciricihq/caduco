@@ -1,5 +1,5 @@
 <?php
-namespace Cirici\Dateit\Test\Fixture;
+namespace Cirici\Caduco\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
 

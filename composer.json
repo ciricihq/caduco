@@ -1,5 +1,5 @@
 {
-    "name": "ciricihq/dateit",
+    "name": "ciricihq/caduco",
     "description": "",
     "type": "cakephp-plugin",
     "require": {
@@ -12,13 +12,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Cirici\\Dateit\\": "src"
+            "Cirici\\Caduco\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Cirici\\Dateit\\Test\\": "tests/app/src",
-            "Cirici\\Dateit\\Test\\Fixture\\": "tests/Fixture",
+            "Cirici\\Caduco\\Test\\": "tests/app/src",
+            "Cirici\\Caduco\\Test\\Fixture\\": "tests/Fixture",
             "App\\": "tests/App"
         }
     }

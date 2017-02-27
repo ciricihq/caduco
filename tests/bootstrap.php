@@ -23,4 +23,4 @@ if (file_exists($root . '/config/bootstrap.php')) {
     require $root . '/config/bootstrap.php';
 }
 require $root . '/vendor/cakephp/cakephp/tests/bootstrap.php';
-\Cake\Core\Plugin::load('Cirici/Dateit', ['path' => dirname(dirname(__FILE__)) . DS]);
+\Cake\Core\Plugin::load('Cirici/Caduco', ['path' => dirname(dirname(__FILE__)) . DS]);

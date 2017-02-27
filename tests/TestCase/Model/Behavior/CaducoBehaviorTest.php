@@ -1,14 +1,14 @@
 <?php
-namespace Cirici\Dateit\Test\TestCase\Model\Behavior;
+namespace Cirici\Caduco\Test\TestCase\Model\Behavior;
 
 use Cake\I18n\Date;
 use Cake\I18n\Time;
 use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use DatePublished\Model\Behavior\PublishableBehavior;
+use DatePublished\Model\Behavior\CaducoBehavior;
 
-class PublishableBehaviorTest extends TestCase
+class CaducoBehaviorTest extends TestCase
 {
     /**
      * Fixtures to load.
@@ -16,8 +16,8 @@ class PublishableBehaviorTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.Cirici/Dateit.pages',
-        'plugin.Cirici/Dateit.date_publisheds'
+        'plugin.Cirici/Caduco.pages',
+        'plugin.Cirici/Caduco.date_publisheds'
     ];
 
     /**
@@ -29,11 +29,11 @@ class PublishableBehaviorTest extends TestCase
     {
         parent::setUp();
         $this->Pages = TableRegistry::get('Pages', [
-            'className' => 'Cirici/Dateit.Pages',
+            'className' => 'Cirici/Caduco.Pages',
             'table' => 'pages',
             'registryAlias' => 'Page'
         ]);
-        $this->Pages->addBehavior('Cirici/Dateit.Publishable');
+        $this->Pages->addBehavior('Cirici/Caduco.Caduco');
     }
 
     /**

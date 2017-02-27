@@ -1,5 +1,5 @@
 <?php
-namespace Cirici\Dateit\Model\Entity;
+namespace Cirici\Caduco\Model\Entity;
 
 use Cake\ORM\Entity;
 
