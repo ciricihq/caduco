@@ -15,7 +15,7 @@
         {
             "name": "Òscar Casajuana",
             "email": "oscar@cirici.com"
-        },
+        }
     ],
     "require": {
         "cakephp/orm": "3.*"
