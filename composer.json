@@ -2,6 +2,21 @@
     "name": "ciricihq/caduco",
     "description": "",
     "type": "cakephp-plugin",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Cirici New Media",
+            "email": "hello@cirici.com"
+        },
+        {
+            "name": "Enyeli Marian González",
+            "email": "enyeli@cirici.com"
+        },
+        {
+            "name": "Òscar Casajuana",
+            "email": "oscar@cirici.com"
+        },
+    ],
     "require": {
         "cakephp/orm": "3.*"
     },

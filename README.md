@@ -31,9 +31,9 @@ Configuration
 First you need to load the plugin. To do so, edit your `bootstrap.php` file and
 add line below:
 
-```php
+~~~php
 Plugin::load('Cirici/Caduco', ['bootstrap' => true]);
-```
+~~~
 
 Usage
 -----
