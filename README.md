@@ -1,6 +1,13 @@
 Caduco plugin for CakePHP 3
 ===========================
 
+[![Build status][build svg]][build status]
+[![Code coverage][coverage svg]][coverage]
+[![License][license svg]][license]
+[![Latest stable version][releases svg]][releases]
+[![Total downloads][downloads svg]][downloads]
+[![Code climate][climate svg]][climate]
+
 This plugin allows you to easily stablish a begin and end dates to your ORM entities.
 
 Installation
@@ -39,3 +46,26 @@ Usage
 -----
 
 TODO
+
+License
+-------
+
+Copyright (c) 2016, [Cirici New Media][cirici] - licensed under [GNU GPL3 license][gnu].
+
+
+[gnu]: LICENSE.md
+[cirici]: https://cirici.com
+
+[build status]: https://travis-ci.org/ciricihq/caduco
+[coverage]: https://codecov.io/gh/ciricihq/caduco
+[license]: https://github.com/ciricihq/caduco/blob/master/LICENSE.md
+[releases]: https://github.com/ciricihq/caduco/releases
+[downloads]: https://packagist.org/packages/ciricihq/caduco
+[climate]: https://codeclimate.com/github/ciricihq/caduco
+
+[build svg]: https://img.shields.io/travis/ciricihq/caduco/master.svg?style=flat-square
+[coverage svg]: https://img.shields.io/codecov/c/github/ciricihq/caduco/master.svg?style=flat-square
+[license svg]: https://img.shields.io/github/license/ciricihq/caduco.svg?style=flat-square
+[releases svg]: https://img.shields.io/github/release/ciricihq/caduco.svg?style=flat-square
+[downloads svg]: https://img.shields.io/packagist/dt/ciricihq/caduco.svg?style=flat-square
+[climate svg]: https://img.shields.io/codeclimate/github/ciricihq/caduco.svg?style=flat-square
