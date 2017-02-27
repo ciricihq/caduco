@@ -49,7 +49,7 @@ class PublishableBehavior extends Behavior
      */
     public function beforeFind(Event $event, Query $query, ArrayObject $options, $primary)
     {
-        $query->find('AllActive');
+        $query->find('allActive');
     }
 
     /**
@@ -61,7 +61,7 @@ class PublishableBehavior extends Behavior
     {
         return $query->notMatching('DatePublisheds', function ($q) {
             return $q->where(['OR' => [
-                    'DatePublisheds.begin_date >' => $q->func()->now(),
+                    'DatePublisheds.begin_date >=' => $q->func()->now(),
                     'DatePublisheds.end_date <' => $q->func()->now(),
                 ],
             ]);
@@ -77,7 +77,7 @@ class PublishableBehavior extends Behavior
     {
         return $query->matching('DatePublisheds', function ($q) {
             return $q->where([
-                'DatePublisheds.end_date <' => $q->func()->now()
+                'DatePublisheds.end_date <=' => $q->func()->now()
             ]);
         });
     }
@@ -91,7 +91,7 @@ class PublishableBehavior extends Behavior
     {
         return $query->matching('DatePublisheds', function ($q) {
             return $q->where([
-                'DatePublisheds.begin_date >' => $q->func()->now()
+                'DatePublisheds.begin_date IS NOT' => null
             ]);
         });
     }

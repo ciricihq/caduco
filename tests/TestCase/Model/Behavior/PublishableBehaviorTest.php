@@ -10,7 +10,6 @@ use DatePublished\Model\Behavior\PublishableBehavior;
 
 class PublishableBehaviorTest extends TestCase
 {
-
     /**
      * Fixtures to load.
      *
@@ -33,10 +32,6 @@ class PublishableBehaviorTest extends TestCase
             'className' => 'Cirici/Dateit.Pages',
             'table' => 'pages',
             'registryAlias' => 'Page'
-        ]);
-        $this->DatePublisheds = TableRegistry::get('DatePublisheds', [
-            'table' => 'date_publisheds',
-            'registryAlias' => 'DatePublisheds'
         ]);
         $this->Pages->addBehavior('Cirici/Dateit.Publishable');
     }
@@ -82,7 +77,7 @@ class PublishableBehaviorTest extends TestCase
      */
     public function testFindAllActive()
     {
-        $pages = $this->Pages->find('allActive')
+        $pages = $this->Pages->find()
             ->contain('DatePublisheds');
         $this->assertCount(3, $pages);
         foreach ($pages as $page) {
@@ -95,5 +90,25 @@ class PublishableBehaviorTest extends TestCase
                 $this->assertTrue($endDate->isFuture());
             }
         }
+    }
+
+    /**
+     * Tests findExpired
+     *
+     * @return void
+     */
+    public function testFindExpired()
+    {
+        $this->markTestIncomplete('find expired test not implemented yet');
+    }
+
+    /**
+     * Tests findNotActive
+     *
+     * @return void
+     */
+    public function testFindNotActive()
+    {
+        $this->markTestIncomplete('find not active test not implemented yet');
     }
 }
