@@ -4,9 +4,12 @@ namespace Cirici\Caduco\Model\Behavior;
 use ArrayObject;
 use Cake\Event\Event;
 use Cake\ORM\Behavior;
+use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Utility\Inflector;
+
 
 class CaducoBehavior extends Behavior
 {
@@ -94,5 +97,49 @@ class CaducoBehavior extends Behavior
                 'Caducities.begin_date IS NOT' => null
             ]);
         });
+    }
+
+    /**
+     * After save listener.
+     *
+     *
+     * @param \Cake\Event\Event $event The afterSave event
+     * @param Cake\ORM\Entity $entity the entity that is going to be saved
+     * @return void
+     */
+    public function afterSave(Event $event, Entity $entity, ArrayObject $options)
+    {
+        $beginDate = $endDate = null;
+
+        if ($entity->begin_date) {
+            $beginDate = date('Y-m-d H:i:s', strtotime($entity->begin_date));
+        }
+
+        if ($entity->end_date) {
+            $endDate = date('Y-m-d H:i:s', strtotime($entity->end_date));
+        }
+
+        $model = Inflector::singularize($this->_table->registryAlias());
+
+        $Caducity = TableRegistry::get('Caduco.Caducities');
+
+        $caducity = $Caducity->find()
+            ->where([
+                'foreign_key' => $entity->id,
+                'model' => $model
+            ])
+            ->first()
+        ;
+
+        if (!$caducity) {
+            $caducity = $Caducity->newEntity($caducity);
+            $caducity->model = $model;
+            $caducity->foreign_key = $entity->id;
+        }
+
+        $caducity->begin_date = $beginDate;
+        $caducity->end_date = $endDate;
+
+        return $Caducity->save($caducity);
     }
 }
