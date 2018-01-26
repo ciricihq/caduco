@@ -2,7 +2,7 @@
     "name": "ciricihq/caduco",
     "description": "",
     "type": "cakephp-plugin",
-    "license": "GPL-3.0",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Cirici New Media",
