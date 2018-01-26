@@ -17,8 +17,8 @@ matrix:
 
 install:
   - composer self-update
+  - if [[ '$PHPCS' != '1' && $TRAVIS_PHP_VERSION = 5.6 ]]; then composer require phpunit/phpunit:~4.8 cakephp/cakephp:^3.4; fi
   - composer install --prefer-dist --no-interaction
-  - if [[ '$PHPCS' != '1' && $TRAVIS_PHP_VERSION = 5.6 ]]; then composer require phpunit/phpunit:4.8.*; fi
 
 script:
   - if [[ '$PHPCS' != '1' && $TRAVIS_PHP_VERSION = 7.* ]]; then vendor/bin/phpunit --coverage-clover=clover.xml; fi
