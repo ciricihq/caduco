@@ -111,12 +111,12 @@ class CaducoBehavior extends Behavior
     {
         $beginDate = $endDate = null;
 
-        if ($entity->begin_date) {
-            $beginDate = date('Y-m-d H:i:s', strtotime($entity->begin_date));
+        if ($entity->caducity->begin_date) {
+            $beginDate = $entity->caducity->begin_date->format('Y-m-d H:i:s');
         }
 
-        if ($entity->end_date) {
-            $endDate = date('Y-m-d H:i:s', strtotime($entity->end_date));
+        if ($entity->caducity->end_date) {
+            $endDate = $entity->caducity->end_date->format('Y-m-d H:i:s');
         }
 
         $model = Inflector::singularize($this->_table->registryAlias());
