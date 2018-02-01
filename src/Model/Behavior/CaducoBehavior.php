@@ -16,7 +16,8 @@ class CaducoBehavior extends Behavior
     protected $_defaultConfig = [
         'tableClass' => 'Caduco.Caducities',
         'foreignKey' => 'foreign_key',
-        'filterActive' => true
+        'filterActive' => true,
+        'dateable' => false
     ];
 
     /**
@@ -57,26 +58,28 @@ class CaducoBehavior extends Behavior
             $query->find('allActive');
         }
 
-        $model = Inflector::singularize($this->_table->registryAlias());
-        $Caducity = TableRegistry::get('Caduco.Caducities');
+        if ($this->config('dateable')) {
+            $model = Inflector::singularize($this->_table->registryAlias());
+            $Caducity = TableRegistry::get('Caduco.Caducities');
 
-        foreach ($query as $q) {
-            $caducity = $Caducity->find()
-                ->where([
-                    'foreign_key' => $q->id,
-                    'model' => $model
-                ])
-                ->first()
-            ;
-            if ($caducity) {
-                $q->begin_date = $caducity->begin_date;
-                $q->end_date = $caducity->end_date;
+            foreach ($query as $q) {
+                $caducity = $Caducity->find()
+                    ->where([
+                        'foreign_key' => $q->id,
+                        'model' => $model
+                    ])
+                    ->first()
+                ;
+                if ($caducity) {
+                    $q->begin_date = $caducity->begin_date;
+                    $q->end_date = $caducity->end_date;
 
-                if ($caducity->begin_date) {
-                    $q->begin_date = $caducity->begin_date->format('Y-m-d');
-                }
-                if ($caducity->end_date) {
-                    $q->end_date = $caducity->end_date->format('Y-m-d');
+                    if ($caducity->begin_date) {
+                        $q->begin_date = $caducity->begin_date->format('Y-m-d');
+                    }
+                    if ($caducity->end_date) {
+                        $q->end_date = $caducity->end_date->format('Y-m-d');
+                    }
                 }
             }
         }
