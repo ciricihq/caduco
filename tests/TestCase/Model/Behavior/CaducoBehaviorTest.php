@@ -68,6 +68,42 @@ class CaducoBehaviorTest extends TestCase
                 $this->assertTrue($endDate->isFuture());
             }
         }
+        $this->Pages->behaviors()->get('Caduco')->config([
+            'filterActive' => false
+        ]);
+        $pages = $this->Pages->find()->contain('Caducities');
+        $this->assertCount(8, $pages);
+
+        $this->Pages->behaviors()->get('Caduco')->config([
+            'dateable' => true
+        ]);
+
+        $data = [
+            'parent_id' => 1,
+            'user_id' => 1,
+            'lft' => 1,
+            'rght' => 1,
+            'title' => 'Lorem ipsum dolor sit amet',
+            'slug' => 'Lorem ipsum dolor sit amet',
+            'text' => 'Lorem ipsum dolor sit amet',
+            'only_for_members' => 1,
+            'deleted' => 0,
+            'deleted_date' => null,
+            'visible' => 1,
+            'begin_date' => '2016-02-22',
+            'end_date' => '2019-02-22'
+        ];
+
+        $newPage = $this->Pages->newEntity($data);
+        $this->Pages->save($newPage);
+        $id = $newPage->id;
+        $page = $this->Pages->find()
+            ->contain('Caducities')
+            ->where(['Pages.id' => $id])
+            ->first()
+        ;
+        $this->assertEquals('2016-02-22', $page->caducity->begin_date->format('Y-m-d'));
+        $this->assertEquals('2019-02-22', $page->caducity->end_date->format('Y-m-d'));
     }
 
     /**

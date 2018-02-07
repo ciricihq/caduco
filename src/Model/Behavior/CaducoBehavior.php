@@ -16,6 +16,8 @@ class CaducoBehavior extends Behavior
     protected $_defaultConfig = [
         'tableClass' => 'Caduco.Caducities',
         'foreignKey' => 'foreign_key',
+        'filterActive' => true,
+        'dateable' => false
     ];
 
     /**
@@ -52,7 +54,35 @@ class CaducoBehavior extends Behavior
      */
     public function beforeFind(Event $event, Query $query, ArrayObject $options, $primary)
     {
-        $query->find('allActive');
+        if ($this->config('filterActive')) {
+            $query->find('allActive');
+        }
+
+        if ($this->config('dateable')) {
+            $model = Inflector::singularize($this->_table->registryAlias());
+            $Caducity = TableRegistry::get('Caduco.Caducities');
+
+            foreach ($query as $q) {
+                $caducity = $Caducity->find()
+                    ->where([
+                        'foreign_key' => $q->id,
+                        'model' => $model
+                    ])
+                    ->first()
+                ;
+                if ($caducity) {
+                    $q->begin_date = $caducity->begin_date;
+                    $q->end_date = $caducity->end_date;
+
+                    if ($caducity->begin_date) {
+                        $q->begin_date = $caducity->begin_date->format('Y-m-d');
+                    }
+                    if ($caducity->end_date) {
+                        $q->end_date = $caducity->end_date->format('Y-m-d');
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -111,12 +141,12 @@ class CaducoBehavior extends Behavior
     {
         $beginDate = $endDate = null;
 
-        if ($entity->begin_date) {
-            $beginDate = date('Y-m-d H:i:s', strtotime($entity->begin_date));
+        if (!empty($entity->begin_date)) {
+            $beginDate = $entity->begin_date;
         }
 
-        if ($entity->end_date) {
-            $endDate = date('Y-m-d H:i:s', strtotime($entity->end_date));
+        if (!empty($entity->end_date)) {
+            $endDate = $entity->end_date;
         }
 
         $model = Inflector::singularize($this->_table->registryAlias());

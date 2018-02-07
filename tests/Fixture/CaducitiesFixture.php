@@ -80,5 +80,12 @@ class CaducitiesFixture extends TestFixture
             'begin_date' => '2016-02-22',
             'end_date' => '2055-02-22'
         ],
+        [
+            'id' => 7,
+            'model' => 'Page',
+            'foreign_key' => 8,
+            'begin_date' => '2016-02-22',
+            'end_date' => '2016-02-22'
+        ],
     ];
 }
