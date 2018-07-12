@@ -68,13 +68,13 @@ class CaducoBehaviorTest extends TestCase
                 $this->assertTrue($endDate->isFuture());
             }
         }
-        $this->Pages->behaviors()->get('Caduco')->config([
+        $this->Pages->behaviors()->get('Caduco')->setConfig([
             'filterActive' => false
         ]);
         $pages = $this->Pages->find()->contain('Caducities');
         $this->assertCount(8, $pages);
 
-        $this->Pages->behaviors()->get('Caduco')->config([
+        $this->Pages->behaviors()->get('Caduco')->setConfig([
             'dateable' => true
         ]);
 

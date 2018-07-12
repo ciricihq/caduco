@@ -30,8 +30,8 @@ class CaducoBehavior extends Behavior
      */
     public function initialize(array $config)
     {
-        $config = $this->config();
-        $model = Inflector::singularize($this->_table->registryAlias());
+        $config = $this->getConfig();
+        $model = Inflector::singularize($this->_table->getRegistryAlias());
 
         $this->_table->hasOne('Caduco.Caducities', [
             'className' => $config['tableClass'],
@@ -54,12 +54,12 @@ class CaducoBehavior extends Behavior
      */
     public function beforeFind(Event $event, Query $query, ArrayObject $options, $primary)
     {
-        if ($this->config('filterActive')) {
+        if ($this->getConfig('filterActive')) {
             $query->find('allActive');
         }
 
-        if ($this->config('dateable')) {
-            $model = Inflector::singularize($this->_table->registryAlias());
+        if ($this->getConfig('dateable')) {
+            $model = Inflector::singularize($this->_table->getRegistryAlias());
             $Caducity = TableRegistry::get('Caduco.Caducities');
 
             foreach ($query as $q) {
@@ -149,7 +149,7 @@ class CaducoBehavior extends Behavior
             $endDate = $entity->end_date;
         }
 
-        $model = Inflector::singularize($this->_table->registryAlias());
+        $model = Inflector::singularize($this->_table->getRegistryAlias());
 
         $Caducity = TableRegistry::get('Caduco.Caducities');
 
